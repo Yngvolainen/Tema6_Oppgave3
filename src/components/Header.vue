@@ -1,9 +1,15 @@
 <template>
-    <h1>REMA1000?</h1>
+    <div>
+        <h1>Citizens ov ze wørld</h1>
+    </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+
+}
 </script>
+
+<style>
+
+</style>
