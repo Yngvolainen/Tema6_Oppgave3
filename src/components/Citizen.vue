@@ -43,7 +43,7 @@ export default {
         width: 50%;
         min-width: 250px; 
         position: absolute;
-        top: 50spx;
+        top: 50px;
         left: 25%; 
         border-radius: 5px;
         padding: 1rem;
