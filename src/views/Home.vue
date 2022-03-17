@@ -1,20 +1,26 @@
-<template class="home-template">
-	<Header @reload-page="reloadPage" />
-	<div id="map"></div>
-	<Citizen class="map-overlay" :people="people" :idOfPerson="idOfPerson" v-if="personChosen" @close-window="personChosen = !personChosen" />
+<template>
+	<div class="wrapper">
+		<Heady />
+		<div class="map-background">
+			<div id="map"></div>
+		</div>
+		<Citizen class="map-overlay" :people="people" :idOfPerson="idOfPerson" v-if="personChosen" @close-window="personChosen = false" />
+		<Footer @reload-page="reloadPage" />
+	</div>
 </template>
 
 <script>
 
 import mapboxgl from 'mapbox-gl';
 import Citizen from '../components/Citizen.vue'
-import Header from '../components/Header.vue'
-
+import Heady from '../components/Heady.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
 	components: {
-		Header,
-		Citizen
+		Heady,
+		Citizen,
+		Footer
 	},
 	data() {
 		return {
@@ -25,7 +31,6 @@ export default {
 		}
 	},
 	async created() {
-		// await this.$store.dispatch('fetchCitizens')
 		await this.getPeople
 
 		// GET MAP
@@ -36,7 +41,6 @@ export default {
 			center: [10.75, 59.91], // starting position [lng, lat]
 			zoom: 1 // starting zoom
 			});
-		// this.markers(map);
 		this.markers(map);
 	},
 	methods: {
@@ -58,8 +62,9 @@ export default {
 				el.addEventListener('click', () => {
 					// marker.cell is the most easily accessible unique feature of each person. Im using that as the basis to find the index of each individual person
 					const personId =  el.id;
+					// find index of people-array matching "personId"
 					this.idOfPerson = this.people.findIndex( marker => marker.cell === personId)
-					// switch this value to true for v-if directive
+					// switch this value to true for v-if directive to show the <Citizen> overlay
 					this.personChosen = true;
 				});
 
@@ -87,12 +92,17 @@ export default {
 	#map {
 		width: 100%;
 		height: 500px;
+		border-radius: 50%; 
 	}
-	/* .home-template {
+	.wrapper {
 		position: relative;
 		padding: 1rem;
-		background: red;
-	} */
+	}
+	.map-background {
+		background-image: url(/images/space.jpg);
+		background-size: 100%;
+		/* width: 100%; */
+	}
 	.marker {
 		display: block;
 		border: none;

@@ -9,8 +9,8 @@
 
         <div>
             <!-- <h3>{{people[idOfPerson].name.last}}</h3> -->
-            <p>Call this criminal: {{people[idOfPerson].phone}}</p>
             <p>Criminal activity: {{activity}}</p>
+            <p>Call now: {{people[idOfPerson].phone}}</p>
         </div>
     </div>
 </template>
@@ -43,7 +43,7 @@ export default {
         width: 50%;
         min-width: 250px; 
         position: absolute;
-        top: 50px;
+        top: 100px;
         left: 25%; 
         border-radius: 5px;
         padding: 1rem;

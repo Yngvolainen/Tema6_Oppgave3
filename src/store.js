@@ -20,7 +20,6 @@ export default {
 			const url = 'https://randomuser.me/api/?results=10'
 			const response = await fetch(url)
 			const {results} = await response.json()
-			// console.log(result)
 			store.commit('updateCitizens', results);
 			console.log('peeps incoming')
 			console.log(results)
