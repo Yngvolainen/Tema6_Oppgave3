@@ -25,6 +25,7 @@ export default {
 	data() {
 		return {
 			mapbox_id: import.meta.env.VITE_MAPBOX_ID,
+			// mapbox_id: 'pk.eyJ1IjoieW5ndm9sYWluZW4iLCJhIjoiY2wwZ2ZpN28yMHFrajNscXQ2aGg0eGZvdyJ9.AN48Q16Nw_AXyXeeBkEflA',
 			people: [],
 			idOfPerson: '',
 			personChosen: false
@@ -35,6 +36,7 @@ export default {
 
 		// GET MAP
 		mapboxgl.accessToken = this.mapbox_id;
+		// console.log(this.mapbox_id)
 		const map = new mapboxgl.Map({
 			container: 'map', // container ID
 			style: 'mapbox://styles/mapbox/streets-v11', // style URL
@@ -101,7 +103,6 @@ export default {
 	.map-background {
 		background-image: url(/images/space.jpg);
 		background-size: 100%;
-		/* width: 100%; */
 	}
 	.marker {
 		display: block;

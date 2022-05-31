@@ -1,6 +1,6 @@
 <template>
     <div class="citizen">
-        <button class="citizen__close-button" @click="$emit('close-window')"><img src="images/close.svg" alt="close profile"></button>
+        <button class="citizen__close-button" @click="$emit('close-window')"><img src="/images/close.svg" alt="close profile"></button>
 
         <div class="citizen__header">
             <img :src="people[idOfPerson].picture.large" alt="profile picture">
